@@ -9,6 +9,7 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 from loguru import logger
+from huggingface_hub import snapshot_download
 from PromptIQA.models import promptiqa
 from PromptIQA.utils.dataset.process import Normalize
 from PromptIQA.utils.toolkit import *
@@ -23,6 +24,14 @@ class PromptIQAPipeline:
         torch.set_default_device(self._device)
         self._model: promptiqa.PromptIQA = None
         self._config_data: dict = None
+
+    @staticmethod
+    def _download_model():
+        checkpoint_dir_default = Path(os.path.join(os.curdir, "./PromptIQA/checkpoints"))
+        if not checkpoint_dir_default.exists():
+            checkpoint_dir_default.mkdir(parents=True, exist_ok=True)
+
+        snapshot_download(repo_id='Zevin2023/PromptIQA', local_dir=checkpoint_dir_default)
 
     def _load_config(self) -> None:
         """ Function for loading the data from the .yaml configuration file. """
@@ -41,6 +50,7 @@ class PromptIQAPipeline:
         logger.info(f"It took: {t2 - t1} sec \n")
 
     def load_model(self, ckpt_path: str) -> None:
+        self._download_model()
         self._model = promptiqa.PromptIQA()
 
         dict_pkl = {}
