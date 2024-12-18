@@ -16,7 +16,7 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
 ]
 
-dependecies=[
+dependencies=[
     "torch==2.4.1",
     "torchvision==0.19.1",
     "einops==0.7.0",
