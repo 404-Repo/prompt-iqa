@@ -1,8 +1,8 @@
 # path to the checkpoint file
-checkpoint_path: ""
+checkpoint_path: "./PromptIQA/checkpoints/best_model.pth.tar"
 
 # path to the reference dataset
-reference_dataset_path: ""
+reference_dataset_path: "./PromptIQA/reference_dataset/"
 
 # weights per image in the reference dataset
-reference_weights: []
+reference_weights: [0.05, 0.01, 0.0, 0.0, 0.7, 0.95, 1.0, 0.7, 0.9]
