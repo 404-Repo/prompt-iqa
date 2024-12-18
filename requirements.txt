@@ -8,6 +8,6 @@ openpyxl==3.1.2
 Pillow==10.4.0
 scipy==1.14.1
 timm==0.5.4
-tqdm==4.66.1
+tqdm==4.66.5
 loguru==0.7.3
 huggingface_hub==0.25.2
