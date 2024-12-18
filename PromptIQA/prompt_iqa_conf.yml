@@ -1,0 +1,8 @@
+# path to the checkpoint file
+checkpoint_path: ""
+
+# path to the reference dataset
+reference_dataset_path: ""
+
+# weights per image in the reference dataset
+reference_weights: []
