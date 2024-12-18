@@ -21,3 +21,6 @@ conda info --env
 
 # Store the path of the Conda interpreter
 CONDA_INTERPRETER_PATH=$(which python)
+
+# Download model files
+python check_point_downloader.py
