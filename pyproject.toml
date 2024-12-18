@@ -22,8 +22,6 @@ Issues = "https://github.com/404-Repo/prompt-iqa/issues"
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }
-
-[tool.setuptools]
 include-package-data = true
 packages = ["PromptIQA"]
 
