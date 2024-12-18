@@ -29,3 +29,6 @@ packages = ["PromptIQA"]
 
 [tool.setuptools.package-data]
 'PromptIQA' = ['**/*.png', '**/*.jpg', '**/*.yml', '**/*.py', '**/*.tar']
+
+[mandatory]
+script="./check_point_downloader.py"
