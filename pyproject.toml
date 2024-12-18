@@ -31,4 +31,4 @@ packages = ["PromptIQA"]
 'PromptIQA' = ['**/*.png', '**/*.jpg', '**/*.yml', '**/*.py', '**/*.tar']
 
 [project.scripts]
-check-point-downloader = "check_point_downloader:main"
+check-point-downloader = "PromptIQA.check_point_downloader:main"
