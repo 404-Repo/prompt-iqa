@@ -5,7 +5,6 @@ from PIL import Image
 from typing import Any
 from time import time
 
-
 import torch
 import torch.nn.functional as F
 import numpy as np
