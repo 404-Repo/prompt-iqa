@@ -17,8 +17,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = ""
-Issues = ""
+Homepage = "https://github.com/404-Repo/prompt-iqa/tree/integration_preparation"
+Issues = "https://github.com/404-Repo/prompt-iqa/issues"
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }
