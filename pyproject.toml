@@ -25,7 +25,7 @@ dependencies=[
     "openpyxl==3.1.2",
     "Pillow==10.0.0",
     "scipy==1.14.1",
-    "timm==1.0.12",
+    "timm==0.6.13",
     "tqdm==4.66.5",
     "loguru==0.7.3",
     "huggingface_hub==0.25.2",
