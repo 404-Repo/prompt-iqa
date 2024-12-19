@@ -24,10 +24,10 @@ class PromptIQAPipeline:
         torch.set_default_device(self._device)
         self._model: promptiqa.PromptIQA = None
         self._config_data: dict = None
+        self._cur_path = Path(__file__).parent
 
-    @staticmethod
-    def _download_model():
-        checkpoint_dir_default = Path(os.path.join(os.curdir, "./PromptIQA/checkpoints"))
+    def _download_model(self):
+        checkpoint_dir_default = self._cur_path / Path(self._config_data["checkpoint_path"]).parent
         if not checkpoint_dir_default.exists():
             checkpoint_dir_default.mkdir(parents=True, exist_ok=True)
 
@@ -35,8 +35,8 @@ class PromptIQAPipeline:
 
     def _load_config(self) -> None:
         """ Function for loading the data from the .yaml configuration file. """
-
-        with open("./PromptIQA/prompt_iqa_conf.yml", "r") as file:
+        config_path = self._cur_path / Path("prompt_iqa_conf.yml")
+        with open(config_path, "r") as file:
             self._config_data = yaml.safe_load(file)
         assert self._config_data != {}
 
@@ -44,8 +44,12 @@ class PromptIQAPipeline:
         logger.info("Loading prompt-IQA pipeline.")
         t1 = time()
         self._load_config()
-        self.load_model(self._config_data["checkpoint_path"])
-        self.load_ref_dataset(self._config_data["reference_dataset_path"], self._config_data["reference_weights"])
+
+        checkpoint_dir_default = self._cur_path / Path(self._config_data["checkpoint_path"])
+        self.load_model(checkpoint_dir_default.as_posix())
+
+        ref_dataset_path = self._cur_path / Path(self._config_data["reference_dataset_path"])
+        self.load_ref_dataset(ref_dataset_path.as_posix(), self._config_data["reference_weights"])
         t2 = time()
         logger.info(f"It took: {t2 - t1} sec \n")
 
