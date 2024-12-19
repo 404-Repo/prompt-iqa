@@ -5,4 +5,4 @@ checkpoint_path: "checkpoints/best_model.pth.tar"
 reference_dataset_path: "reference_dataset/"
 
 # weights per image in the reference dataset
-reference_weights: [0.05, 0.01, 0.0, 0.0, 0.7, 0.95, 1.0, 0.7, 0.9]
+reference_weights: [0.0, 0.01, 0.2, 0.15, 0.6, 0.6, 0.95, 1.0]
