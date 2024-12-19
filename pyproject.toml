@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-iqa"
+version = "0.0.0"
+description = "PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts"
+authors = [
+    {name="Zewen Chen", email="chencn2018@163.com"},
+]
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+
+dependencies=[
+    "torch==2.5.0",
+    "torchvision==0.20.0",
+    "einops==0.7.0",
+    "numpy==1.26.4",
+    "opencv_python==4.8.0.76",
+    "openpyxl==3.1.2",
+    "Pillow==10.0.0",
+    "scipy==1.14.1",
+    "timm==0.6.13",
+    "tqdm==4.66.5",
+    "loguru==0.7.3",
+    "huggingface_hub==0.25.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/404-Repo/prompt-iqa/tree/integration_preparation"
+Issues = "https://github.com/404-Repo/prompt-iqa/issues"
+
+[tool.pip-tools]
+extra-index-urls = [
+    "https://download.pytorch.org/whl/cu121"
+]
+
+[tool.setuptools]
+include-package-data = true
+packages = ["PromptIQA"]
+
+[tool.setuptools.package-data]
+'PromptIQA' = ['**/*.png', '**/*.jpg', '**/*.yml', '**/*.py', '**/*.tar']
+
+[project.scripts]
+check-point-downloader = "PromptIQA.check_point_downloader:main"
