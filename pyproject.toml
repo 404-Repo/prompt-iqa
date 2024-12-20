@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "prompt-iqa"
-version = "0.0.0"
+version = "0.0.1"
 description = "PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts"
 authors = [
     {name="Zewen Chen", email="chencn2018@163.com"},
