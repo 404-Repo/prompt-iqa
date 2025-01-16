@@ -94,13 +94,7 @@ class PromptIQAPipeline:
         files_jpgs = list(folder.rglob("*.jpg"))
         files = files_pngs + files_jpgs
 
-        test_match = re.search(r"(\d+)", str(files[0].stem))
-        digit_checker = int(test_match.group(1)) if test_match else False
-
-        if not digit_checker:
-            sorted_files = sorted(files, key=lambda f: f.name)
-        else:
-            sorted_files = sorted(files, key=lambda f: int(re.findall(r"\d+", f.name)[0]))
+        sorted_files = sorted(files, key=lambda f: (f.stem.split('_')[0], int(f.stem.split('_')[-1][3:])))
 
         if len(sorted_files) == 0:
             raise RuntimeWarning(f"No files were found in <{folder_path}>. Nothing to process!")
